@@ -1,0 +1,12 @@
+name: Actions Ecosystem Action Get Latest Tag
+description: Get a latest Git tag.
+author: Actions Ecosystem
+outputs:
+  tag:
+    description: The latest tag.
+runs:
+  using: docker
+  image: Dockerfile
+branding:
+  icon: bookmark
+  color: green
