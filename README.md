@@ -14,11 +14,6 @@ It would be more useful to use this with other GitHub Actions' outputs.
 |-------|-----------------|----------|
 | `tag` | The latest tag. | `string` |
 
-## Example
-
-```yaml
-```
-
 ## License
 
 Copyright 2020 The Actions Ecosystem Authors.
