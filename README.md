@@ -8,15 +8,19 @@ This is a GitHub Action to get a latest Git tag.
 
 It would be more useful to use this with other GitHub Actions' outputs.
 
+## Inputs
+
+|     NAME      |                                       DESCRIPTION                                       |  TYPE  | REQUIRED | DEFAULT |
+| ------------- | --------------------------------------------------------------------------------------- | ------ | -------- | ------- |
+| `semver_only` | Whether gets only a tag in the shape of semver. `'v'` prefix is accepted for tag names. | `bool` | `false`  | `false` |
+
 ## Outputs
 
-| NAME  |   DESCRIPTION   |   TYPE   |
-|-------|-----------------|----------|
-| `tag` | The latest tag. | `string` |
+| NAME  |                      DESCRIPTION                      |   TYPE   |
+| ----- | ----------------------------------------------------- | -------- |
+| `tag` | The latest tag. If no tag exists, this value is `''`. | `string` |
 
 ## Example
-
-### Simple
 
 ```yaml
 name: Push a new tag with Pull Request
@@ -52,6 +56,8 @@ jobs:
           tag: ${{ steps.bump-semver.outputs.new_version }}
           message: '${{ steps.bump-semver.outputs.new_version }}: PR #${{ github.event.pull_request.number }} ${{ github.event.pull_request.title }}'
 ```
+
+For a further practical example, see [.github/workflows/release.yml](.github/workflows/release.yml).
 
 ### More Practical
 
