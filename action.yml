@@ -1,9 +1,14 @@
 name: Actions Ecosystem Action Get Latest Tag
 description: Get a latest Git tag.
 author: Actions Ecosystem
+inputs:
+  semver_only:
+    description: Whether gets only a tag in the shape of semver. 'v' prefix is accepted for tag names.
+    required: false
+    default: "false"
 outputs:
   tag:
-    description: The latest tag.
+    description: The latest tag. If no tag exists, this value is ''.
 runs:
   using: docker
   image: Dockerfile
