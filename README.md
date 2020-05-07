@@ -30,8 +30,8 @@ $ git tag v1 && git push origin v1 # bind v1 to v1.1.0.
 
 In such a case, `outputs.tag` varies like this:
 
-- `inputs.semver_only=false` -> `outputs.tag=v1`
-- `inputs.semver_only=true` -> `outputs.tag=v1.1.0`
+- `inputs.semver_only`=`false` -> `outputs.tag`=`v1`
+- `inputs.semver_only`=`true` -> `outputs.tag`=`v1.1.0`
 
 ## Outputs
 
