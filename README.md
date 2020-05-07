@@ -14,6 +14,25 @@ It would be more useful to use this with other GitHub Actions' outputs.
 | ------------- | --------------------------------------------------------------------------------------- | ------ | -------- | ------- |
 | `semver_only` | Whether gets only a tag in the shape of semver. `'v'` prefix is accepted for tag names. | `bool` | `false`  | `false` |
 
+If `inputs.semver_only` is `true`, the `outputs.tag` will be in the shape of semver.
+
+This input is useful for versioning that binds a major version is the latest of that major version (e.g., `v1` == `v1.*`), like GitHub Actions.
+In such a case, the actual latest tag is a major version, but the version isn't as we expected when we want to work with semver.
+
+Let's say you did the following versioning.
+
+```console
+$ git tag v1.0.0 && git push origin v1.0.0
+$ # some commits...
+$ git tag v1.1.0 && git push origin v1.1.0
+$ git tag v1 && git push origin v1 # bind v1 to v1.1.0.
+```
+
+In such a case, `outputs.tag` varies like this:
+
+- `inputs.semver_only=false` -> `outputs.tag=v1`
+- `inputs.semver_only=true` -> `outputs.tag=v1.1.0`
+
 ## Outputs
 
 | NAME  |                      DESCRIPTION                      |   TYPE   |
