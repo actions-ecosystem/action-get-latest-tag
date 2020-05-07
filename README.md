@@ -14,7 +14,7 @@ It would be more useful to use this with other GitHub Actions' outputs.
 | ------------- | --------------------------------------------------------------------------------------- | ------ | -------- | ------- |
 | `semver_only` | Whether gets only a tag in the shape of semver. `'v'` prefix is accepted for tag names. | `bool` | `false`  | `false` |
 
-If `inputs.semver_only` is `true`, the `outputs.tag` will be in the shape of semver.
+If `inputs.semver_only` is `true`, the latest tag among tags with semver will be set for `outputs.tag`.
 
 This input is useful for versioning that binds a major version is the latest of that major version (e.g., `v1` == `v1.*`), like GitHub Actions.
 In such a case, the actual latest tag is a major version, but the version isn't as we expected when we want to work with semver.
