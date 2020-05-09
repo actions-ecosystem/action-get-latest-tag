@@ -3,12 +3,20 @@ description: Get a latest Git tag.
 author: Actions Ecosystem
 inputs:
   semver_only:
-    description: Whether gets only a tag in the shape of semver. 'v' prefix is accepted for tag names.
+    description: Whether gets only a tag in the shape of semver. `v` prefix is accepted for tag names.
     required: false
     default: "false"
+  initial_version:
+    description: The initial version. Works only when `inputs.with_initial_version` == `true`.
+    required: false
+    default: "v0.0.0"
+  with_initial_version:
+    description: Whether returns `inputs.initial_version` as `outputs.tag` if no tag exists. `true` and `false` are available.
+    required: false
+    default: "true"
 outputs:
   tag:
-    description: The latest tag. If no tag exists, this value is ''.
+    description: The latest tag. If no tag exists and `inputs.with_initial_version` == `false`, this value is `''`.
 runs:
   using: docker
   image: Dockerfile
