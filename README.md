@@ -10,9 +10,11 @@ It would be more useful to use this with other GitHub Actions' outputs.
 
 ## Inputs
 
-|     NAME      |                                       DESCRIPTION                                       |  TYPE  | REQUIRED | DEFAULT |
-| ------------- | --------------------------------------------------------------------------------------- | ------ | -------- | ------- |
-| `semver_only` | Whether gets only a tag in the shape of semver. `'v'` prefix is accepted for tag names. | `bool` | `false`  | `false` |
+|          NAME          |                                                  DESCRIPTION                                                  |   TYPE   | REQUIRED | DEFAULT  |
+|------------------------|---------------------------------------------------------------------------------------------------------------|----------|----------|----------|
+| `semver_only`          | Whether gets only a tag in the shape of semver. `v` prefix is accepted for tag names.                         | `bool`   | `false`  | `false`  |
+| `initial_version`      | The initial version. Works only when `inputs.with_initial_version` == `true`.                                 | `string` | `false`  | `v0.0.0` |
+| `with_initial_version` | Whether returns `inputs.initial_version` as `outputs.tag` if no tag exists. `true` and `false` are available. | `bool`   | `false`  | `true`   |
 
 If `inputs.semver_only` is `true`, the latest tag among tags with semver will be set for `outputs.tag`.
 
@@ -35,9 +37,9 @@ In such a case, `outputs.tag` varies like this:
 
 ## Outputs
 
-| NAME  |                      DESCRIPTION                      |   TYPE   |
-| ----- | ----------------------------------------------------- | -------- |
-| `tag` | The latest tag. If no tag exists, this value is `''`. | `string` |
+| NAME  |                                            DESCRIPTION                                             |   TYPE   |
+|-------|----------------------------------------------------------------------------------------------------|----------|
+| `tag` | The latest tag. If no tag exists and `inputs.with_initial_version` == `false`, this value is `''`. | `string` |
 
 ## Example
 

@@ -20,4 +20,8 @@ else
     done
 fi
 
+if [ "${latest_tag}" = '' ] && [ "${INPUT_WITH_INITIAL_VERSION}" = 'true' ]; then
+    latest_tag="${INPUT_INITIAL_VERSION}"
+fi
+
 echo "::set-output name=tag::${latest_tag}"
