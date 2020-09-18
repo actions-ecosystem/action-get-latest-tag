@@ -14,7 +14,7 @@ if [ "${INPUT_SEMVER_ONLY}" = 'false' ]; then
 else
   # Get a latest tag in the shape of semver.
   for ref in $(git for-each-ref --sort=-creatordate --format '%(refname)' refs/tags); do
-    readonly tag="${ref#refs/tags/}"
+    tag="${ref#refs/tags/}"
     if echo "${tag}" | grep -Eq '^v?([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$'; then
       latest_tag="${tag}"
       break
