@@ -10,11 +10,12 @@ It would be more useful to use this with other GitHub Actions' outputs.
 
 ## Inputs
 
-|          NAME          |                                                  DESCRIPTION                                                  |   TYPE   | REQUIRED | DEFAULT  |
-|------------------------|---------------------------------------------------------------------------------------------------------------|----------|----------|----------|
-| `semver_only`          | Whether gets only a tag in the shape of semver. `v` prefix is accepted for tag names.                         | `bool`   | `false`  | `false`  |
-| `initial_version`      | The initial version. Works only when `inputs.with_initial_version` == `true`.                                 | `string` | `false`  | `v0.0.0` |
-| `with_initial_version` | Whether returns `inputs.initial_version` as `outputs.tag` if no tag exists. `true` and `false` are available. | `bool`   | `false`  | `true`   |
+NAME | DESCRIPTION | TYPE | REQUIRED | DEFAULT
+---|---|---|---|---
+`semver_only` | Whether to return only semvar format tags. `v` prefix is accepted for tag names. | `bool` | `false` | `false`
+`initial_version` | The initial version. Works only when `inputs.with_initial_version` is set to `true`. | `string` | `false` | `v0.0.0`
+`with_initial_version` | Whether to return `inputs.initial_version` as `outputs.tag` if no tag exists | `bool` | `false` | `true`
+`sort_by_date` | Whether to sort the tags in chronological order (default) or in lexicographical order | `bool` | `false` | `true`
 
 If `inputs.semver_only` is `true`, the latest tag among tags with semver will be set for `outputs.tag`.
 
