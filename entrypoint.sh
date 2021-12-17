@@ -10,7 +10,8 @@ latest_tag=''
 
 if [ "${INPUT_SEMVER_ONLY}" = 'false' ]; then
   # Get a actual latest tag.
-  latest_tag=$(git describe --abbrev=0 --tags)
+  # If no tags found, supress an error. In such case stderr will be not stored in latest_tag variable so no additional logic is needed.
+  latest_tag=$(git describe --abbrev=0 --tags || true)
 else
   # Get a latest tag in the shape of semver.
   for ref in $(git for-each-ref --sort=-creatordate --format '%(refname)' refs/tags); do
