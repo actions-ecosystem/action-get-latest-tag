@@ -4,7 +4,7 @@ set -e
 
 git config --global --add safe.directory /github/workspace
 
-git fetch --tags
+git fetch --tags -f
 # This suppress an error occurred when the repository is a complete one.
 git fetch --prune --unshallow || true
 
