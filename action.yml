@@ -23,7 +23,7 @@ runs:
   steps:
     - name: Entrypoint
       id: get-tag
-      run: ./entrypoint.sh
+      run: ${{ github.action_path }}/entrypoint.sh
       shell: bash
 branding:
   icon: bookmark
