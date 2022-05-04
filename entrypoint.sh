@@ -1,5 +1,9 @@
 #!/bin/sh
 
+INPUT_SEMVER_ONLY="$1"
+INPUT_INITIAL_VERSION="$2"
+INPUT_WITH_INITIAL_VERSION="$3"
+
 set -e
 
 git fetch --tags

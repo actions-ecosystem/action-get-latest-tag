@@ -23,7 +23,7 @@ runs:
   steps:
     - name: Entrypoint
       id: get-tag
-      run: ${{ github.action_path }}/entrypoint.sh
+      run: ${{ github.action_path }}/entrypoint.sh "${{ inputs.semver_only }}" "${{ inputs.initial_version }}" "${{ inputs.with_initial_version }}"
       shell: bash
 branding:
   icon: bookmark
