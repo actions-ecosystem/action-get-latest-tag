@@ -1,6 +1,7 @@
 name: Actions Ecosystem Action Get Latest Tag
 description: Get a latest Git tag.
 author: Actions Ecosystem
+
 inputs:
   semver_only:
     description: Whether gets only a tag in the shape of semver. `v` prefix is accepted for tag names.
@@ -14,10 +15,12 @@ inputs:
     description: Whether returns `inputs.initial_version` as `outputs.tag` if no tag exists. `true` and `false` are available.
     required: false
     default: 'true'
+
 outputs:
   tag:
     description: The latest tag. If no tag exists and `inputs.with_initial_version` == `false`, this value is `''`.
     value: ${{ steps.get-tag.outputs.tag }}
+
 runs:
   using: composite
   steps:
@@ -25,6 +28,7 @@ runs:
       id: get-tag
       run: ${{ github.action_path }}/entrypoint.sh "${{ inputs.semver_only }}" "${{ inputs.initial_version }}" "${{ inputs.with_initial_version }}"
       shell: bash
+
 branding:
   icon: bookmark
   color: green
