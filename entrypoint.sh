@@ -29,4 +29,4 @@ if [ "${latest_tag}" = '' ] && [ "${INPUT_WITH_INITIAL_VERSION}" = 'true' ]; the
   latest_tag="${INPUT_INITIAL_VERSION}"
 fi
 
-echo "::set-output name=tag::${latest_tag}"
+echo "tag=${latest_tag}" >> "$GITHUB_OUTPUT"
