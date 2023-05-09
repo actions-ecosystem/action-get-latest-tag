@@ -14,6 +14,10 @@ inputs:
     description: Whether returns `inputs.initial_version` as `outputs.tag` if no tag exists. `true` and `false` are available.
     required: false
     default: "true"
+  sort_by_date:
+    description: If set to `false`, the tags are sorted in lexicographical order by `refname` (which can return the largest semver tag). Defaults to `true` and returns the tag which was pushed most recently (even though it might not be the largest by semver comparison).
+    required: false
+    default: "true"
 outputs:
   tag:
     description: The latest tag. If no tag exists and `inputs.with_initial_version` == `false`, this value is `''`.
